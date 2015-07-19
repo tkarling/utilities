@@ -439,9 +439,12 @@ describe("sortBy", function() {
 
   it("should handle undefined values", function() {
     var list = [undefined, 4, 1, undefined, 3, 2];
+    // var list = [4, 1, 3, 2];
     var result = _.sortBy(list, function(i) { return i; });
 
     expect(result).to.eql([1, 2, 3, 4, undefined, undefined]);
+    // expect(result).to.eql([1, 2, 3, 4]);
+
   });
 
   it("should sort by length", function() {
@@ -499,6 +502,12 @@ describe("intersection", function() {
   it("should take the set intersection of two arrays", function() {
     var stooges = ['moe', 'curly', 'larry'];
     var leaders = ['moe', 'groucho'];
+    expect(_.intersection(stooges, leaders)).to.eql(['moe']);
+  });
+  it("should take the set intersection of 3 arrays", function() {
+    var stooges = ['moe', 'curly', 'larry'];
+    var leaders = ['moe', 'groucho'];
+    var cats = ['eeny', 'meeny', 'moe', ]
     expect(_.intersection(stooges, leaders)).to.eql(['moe']);
   });
 });
